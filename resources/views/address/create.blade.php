@@ -10,7 +10,12 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                     <div>
-                        <x-jet-application-logo class="block h-12 w-auto" />
+                        <div class="shrink-0 flex items-center">
+                            <a class="flex items-center" href="{{ route('dashboard') }}">
+                                <img class="h-10 w-10 mr-2" src="../images/pizzalogo.png"/>
+                                <span class="font-semibold text-xl tracking-tight text-gray-800">LaraPizza</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="mx-auto text-center text-xl text-gray-400  font-semibold">
                         <span class="border-b-2 border-green-400">Nowy adres</span>
