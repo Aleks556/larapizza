@@ -9,10 +9,17 @@
 
 
 ## Założenia projektu
--1
--2
--3
+Projekt został stworzony i jest ciągle rozwijany w celu nabycia wiedzy o skryptowym języku programowania PHP oraz frameworka Laravel z kitem startowym Jetstream (TALL). Aplikacja polega na umożliwieniu klientom zamawiania produktów (w tym przypadku pożywienia) przez internet z możliwością wybrania opcji dostawy pod wskazany adres, czy też odbioru osobistego w restauracji. Jednak z drugiej strony aplikacji mamy rozbudowany panel pracowniczy, gdzie pracownicy mają możliwość kordynowania procesów dotyczących pracowników, zamówień, zgłoszeń do zamówień. Aplikacja ta umożliwa również zarządzanie stanowiskami pracy wraz z ustaleniem poziomów uprawnień, które sa wymagane do interakcji z różnymi funkcjami panelu.
 
+## Konta testowe
+
+Konto klienta
+- email: tester@tester.pl hasło: tester123
+
+Konto menadżera
+- email: root@tester.pl hasło: tester123
+
+Zapraszam do testowania! :)
 
 ## About Laravel
 
