@@ -76,6 +76,19 @@ class User extends Authenticatable
         }
     }
 
+    public function getUserEid()
+    {
+        $employee = Employee::where('user_id', $this->id)->first();
+        if (isset($employee->exists))
+        {
+            return $employee->id;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public function employee()
     {
         return $this->belongsTo(Employee::class);

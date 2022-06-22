@@ -47,7 +47,7 @@ class AddressController extends Controller
             'number' => 'required',
             'flat' => 'max:50',
             'city' => 'required|min:3|max:50',
-            'zipcode' => 'required|min:3|max:50'
+            'zipcode' => 'regex:/^(?:\d{2}-\d{3})$/i'
         ]);
         $attributes['user_id'] = request()->user()->id;
         $address->update($attributes);

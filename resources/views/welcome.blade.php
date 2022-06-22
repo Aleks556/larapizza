@@ -8,9 +8,11 @@
                 Zamów danie i ciesz się smakiem!
             </p>
 
-            <x-jet-danger-button class="mt-4">Sprawdź</x-jet-danger-button>
+            <a href="{{ route('order.create') }}">
+                <x-jet-danger-button class="mt-4">Sprawdź</x-jet-danger-button>
+            </a>
         </div>
-        <img class="hidden sm:block sm:w-1/3 sm:mt-2" src="images/img_banner1.jpg">
+        <img class="hidden sm:block sm:w-1/3 sm:mt-2 rounded-full" src={{ URL::asset('/images/img_banner1.jpg') }}>
     </div>
     <div class="text-center mx-auto mb-12 lg:px-20">
         <h2 class="text-2xl leading-normal mb-2 font-bold text-black">
@@ -61,27 +63,5 @@
             <!-- end service block -->
         </div>
     </div>
-    <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <div class="flex flex-wrap items-center">
-                <a class="flex items-center" href="{{ route('dashboard') }}">
-                    <img class="h-8 w-8 mr-2" src="images/pizzalogo.png"/>
-                    <span class="font-semibold text-xl tracking-tight text-gray-800">LaraPizza</span>
-                </a>
-            </div>
-            <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0">
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Strona główna</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">Menu</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Kontakt</a>
-                </li>
-            </ul>
-        </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8">
-        <span class="block text-sm text-gray-500 sm:text-center">© 2022 <a href="https://flowbite.com" class="hover:underline">LaraPizza</a>. Wszelkie prawa zastrzeżone.</span>
-    </footer>
+    <x-footer />
 </x-guest-layout>

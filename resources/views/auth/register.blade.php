@@ -1,10 +1,38 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <x-logo />
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+{{--        <x-jet-validation-errors class="mb-4" />--}}
+        @if ($errors->any())
+            <div class="mb-4">
+                <div class="font-medium text-red-600">Ups! Coś poszło nie tak.</div>
+
+                <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+
+
+                        @error('name')
+                            <li>Wprowadzone imię i nazwisko jest nieprawidłowe.</li>
+                        @enderror
+
+                        @error('email')
+                            <li>Wprowadzony adres email jest nieprawidłowy.</li>
+                        @enderror
+
+
+                        @error('password')
+                            <li>Hasło powinno składać się z minimum 8 znaków.</li>
+                        @enderror
+
+                        @error('confirmed')
+                            <li>Wprowadzone hasła nie są takie same</li>
+                        @enderror
+
+
+                </ul>
+            </div>
+        @endif
 
         <form method="POST" action="{{ route('register') }}">
             @csrf

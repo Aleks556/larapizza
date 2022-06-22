@@ -15,40 +15,64 @@ class EdashboardController extends Controller
 {
     public function index()
     {
-        return view('edashboard.index');
+        if (hasRole(auth()->user()->getUserEid(), 1))
+        {
+            return view('edashboard.index');
+        }
+        return redirect(route('welcome'));
     }
 
     public function orders_today()
     {
-        return view('edashboard.order.orders_today');
+        if (hasRole(auth()->user()->getUserEid(), 1))
+        {
+            return view('edashboard.order.orders_today');
+        }
+        return redirect(route('welcome'));
     }
 
     public function orders_all()
     {
-        $orders = Order::all();
-        return view('edashboard.order.orders_all', [
-            'orders' => $orders
-        ]);
+        if (hasRole(auth()->user()->getUserEid(), 1))
+        {
+            $orders = Order::all();
+            return view('edashboard.order.orders_all', [
+                'orders' => $orders
+            ]);
+        }
+        return redirect(route('welcome'));
     }
 
     public function edit_order(Order $order, Item $item, OrderItem $orderItem, Category $category)
     {
-        return view('edashboard.order.edit_order', [
-            'order' => $order,
-            'order_items' => OrderItem::where('order_id', $order->id)->get(),
-            'category' => $category
-        ]);
+        if (hasRole(auth()->user()->getUserEid(), 1))
+        {
+            return view('edashboard.order.edit_order', [
+                'order' => $order,
+                'order_items' => OrderItem::where('order_id', $order->id)->get(),
+                'category' => $category
+            ]);
+        }
+        return redirect(route('welcome'));
     }
 
     public function edit_report(OrderReport $report, Order $order)
     {
-        return view('edashboard.report.edit_report', [
-            'report' => $report,
-        ]);
+        if (hasRole(auth()->user()->getUserEid(), 2))
+        {
+            return view('edashboard.report.edit_report', [
+                'report' => $report,
+            ]);
+        }
+        return redirect(route('edashboard'));
     }
 
     public function reports()
     {
-        return view('edashboard.report.reports');
+        if (hasRole(auth()->user()->getUserEid(), 1))
+        {
+            return view('edashboard.report.reports');
+        }
+        return redirect(route('welcome'));
     }
 }

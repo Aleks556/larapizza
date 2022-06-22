@@ -4,11 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('edashboard.index') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
-                    </a>
-                </div>
+                <x-logo />
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -98,7 +94,7 @@
 
                         <x-slot name="content">
                             {{--        Panel pracownika                    --}}
-                            @if(auth()->user()->getGroup() == 1)
+                            @if(hasRole(auth()->user()->getUserEid(), 1))
                                 <div class="block px-4 py-2 text-xs text-red-400">
                                     Panel pracownika
                                 </div>
@@ -167,6 +163,20 @@
                 Zapisane adresy
             </x-jet-responsive-nav-link>
         </div>
+
+
+            @if(hasRole(auth()->user()->getUserEid(), 1))
+                <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div class="block px-4 py-2 text-xs text-red-400">
+                        Panel pracownika
+                    </div>
+
+                    <x-jet-dropdown-link href="{{ route('edashboard.index') }}">
+                        Przejdź do panelu
+                    </x-jet-dropdown-link>
+                </div>
+            @endif
+
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

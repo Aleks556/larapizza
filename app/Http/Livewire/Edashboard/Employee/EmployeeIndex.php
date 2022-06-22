@@ -40,10 +40,7 @@ class EmployeeIndex extends Component
     }
 
 
-//    public function setMessage()
-//    {
-//        session()->flash('message', 'Szukanie ' . $this->a . ' w czy znajduje się w grupie pracowników...');
-//    }
+
 
 
     public function clearNameInput()

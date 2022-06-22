@@ -8,24 +8,38 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+
+
     public function index(Role $role)
     {
-        return view('edashboard.role.index', [
-            'roles' => Role::all(),
-        ]);
+        if (hasRole(auth()->user()->getUserEid(), 2))
+        {
+            return view('edashboard.role.index', [
+                'roles' => Role::all(),
+            ]);
+        }
+        return sendPermissionMsgAndReRoute('Nie posiadasz odpowiednich uprawnień do wyświetlenia tej strony.');
     }
 
     public function edit(Role $role, Employee $employee)
     {
-        return view('edashboard.role.edit', [
-            'role' => $role,
-            'employees' => Employee::where('role_id', $role->id)->get(),
-        ]);
+        if (hasRole(auth()->user()->getUserEid(), 3))
+        {
+            return view('edashboard.role.edit', [
+                'role' => $role,
+                'employees' => Employee::where('role_id', $role->id)->get(),
+            ]);
+        }
+        return sendPermissionMsgAndReRoute('Nie posiadasz odpowiednich uprawnień do wyświetlenia tej strony.');
     }
 
     public function create()
     {
-        return view('edashboard.role.create');
+        if (hasRole(auth()->user()->getUserEid(), 3))
+        {
+            return view('edashboard.role.create');
+        }
+        return sendPermissionMsgAndReRoute('Nie posiadasz odpowiednich uprawnień do wyświetlenia tej strony.');
     }
 
     public function store()

@@ -2,12 +2,7 @@
     <div class="flex justify-between h-16">
         <div class="flex">
             <!-- Logo -->
-            <div class="shrink-0 flex items-center">
-                <a class="flex items-center" href="{{ route('dashboard') }}">
-                    <img class="h-8 w-8 mr-2" src="images/pizzalogo.png"/>
-                    <span class="font-semibold text-xl tracking-tight text-gray-800">LaraPizza</span>
-                </a>
-            </div>
+            <x-logo />
 
             <!-- Navigation Links -->
             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

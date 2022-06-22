@@ -74,7 +74,7 @@
                                         <p class="text-orange-400">{{ $order->getStatusName() }}</p>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="orders/{{ $order->id }}/edit" class="font-medium text-blue-600 hover:underline">Zarządzaj</a>
+                                        <a href="{{ $order->id }}/edit" class="font-medium text-blue-600 hover:underline">Zarządzaj</a>
                                     </td>
                                 </tr>
                             @endforeach

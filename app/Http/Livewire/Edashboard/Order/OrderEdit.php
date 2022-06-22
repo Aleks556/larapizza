@@ -30,9 +30,6 @@ class OrderEdit extends Component
     public $phone_number;
     public $comment;
 
-    protected $rules = [
-        'phone_number' => 'required|numeric|digits:9',
-    ];
     protected function rules()
     {
         if ($this->order_delivery == 0)

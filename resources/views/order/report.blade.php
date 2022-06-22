@@ -53,7 +53,7 @@
                     @else
                         <p class="text-center text-3xl p-8 mx-auto text-red-500">Przepraszamy, ale to zamówienie zostało już zgłoszone.</p>
                         <p class="text-center">Poniżej znajdują się szczegóły zgłoszenia Twojego zamówienia</p>
-                        @isset($report)
+                        @if(isset($report))
                             @foreach($report as $report_single)
                                 <p class="text-center p-6 font-semibold">W zgłoszeniu został wybrany temat: {{ $report_single->getProblem() }} </p>
                                 {{--                                @if(isset($report_single->description))--}}
@@ -64,7 +64,7 @@
                                 <p class="text-center py-2">Status zgłoszenia</p>
                                 <p class="text-center font-semibold text-red-500">{{ $report_single->getStatusName() }}</p>
                             @endforeach
-                        @endisset
+                        @endif
                     @endif
                 </div>
             </div>

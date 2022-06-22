@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index(Order $order)
     {
         return view('order.index', [
-            'orders' => Order::orderBy('created_at', 'desc')->get()
+            'orders' => Order::orderBy('created_at', 'desc')->simplePaginate(6)
         ]);
     }
     public function create()

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function report(Order $order)
+    public function report(OrderReport $orderReport, Order $order)
     {
         $report_count = OrderReport::where('order_id', $order->id)->count();
         $available = 0;
@@ -16,28 +16,16 @@ class ReportController extends Controller
         if ($report_count == 0)
         {
             $available = 1;
-            $report_problem_name = '';
-            return view('order.report', [
-                'order' => $order,
-                'available' => $available,
-                'report' => $report,
-//                'report_problem_name' => $report_problem_name
-            ]);
         }
         else
         {
             $report = OrderReport::where('order_id', $order->id)->get();
-            if (isset($report))
-            {
-                $report_problem_name = OrderReport::find($order->id)->getProblem();
-            }
-            return view('order.report', [
-                'order' => $order,
-                'available' => $available,
-                'report' => $report,
-                'report_problem_name' => $report_problem_name
-            ]);
         }
+        return view('order.report', [
+            'order' => $order,
+            'available' => $available,
+            'report' => $report,
+        ]);
 
     }
 
