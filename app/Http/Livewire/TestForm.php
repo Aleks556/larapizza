@@ -41,14 +41,14 @@ class TestForm extends Component
         'phone_number' => 'required|numeric|digits:9'
     ];
 
-    //Set up form items from db
+
     public function mount(Address $address, Item $item)
     {
         $this->addresses = Address::all();
         $this->items_catalog = Item::all();
     }
 
-    //Core methods...
+
 
     public function chooseDelivery($aid = null)
     {
@@ -131,7 +131,7 @@ class TestForm extends Component
         $this->calculatePrice();
     }
 
-    //Utils methods
+
     public function getFreeSlot(): int
     {
         if (isset($this->items_cart)){
