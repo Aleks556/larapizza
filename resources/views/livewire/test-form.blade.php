@@ -48,7 +48,6 @@
                     @endif
                 @elseif($step == 2)
                     <div>
-                        <!-- <x-jet-application-logo class="block h-12 w-auto" /> -->
                         <div class="sm:flex items-center justify-between mb-2">
                             <p class="font-normal p-6 sm:text-xl">Etap 2: sporządzenie zamówienia</p>
                             <a class="lg:text-center text-gray-400 hover:underline text-sm" wire:click="previousStep">

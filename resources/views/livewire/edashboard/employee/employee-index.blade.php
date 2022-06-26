@@ -8,16 +8,13 @@
             <div class="ml-2 text-center text-white font-semibold bg-red-600 border text-sm items-center inset-0 p-2 rounded-md">{{ session('message') }}</div>
         @endif
         @if(isset($searched_employee))
-{{--            @foreach($searched_employees as $searched_employee)--}}
-{{--                @dd($searched_employee->id)--}}
-                <div class="mx-2 items-center inline-flex inset-0">
-                    <p class="">ID {{ $searched_employee->id }} {{ $searched_employee->user->name }}</p>
-                    <p class="text-sm text-gray-400 mx-2">Dostawca</p>
-                    <a href="{{ route('edashboard.employees.edit', $searched_employee->id) }}">
-                        <x-jet-secondary-button>Zarządzaj</x-jet-secondary-button>
-                    </a>
-                </div>
-{{--            @endforeach--}}
+            <div class="mx-2 items-center inline-flex inset-0">
+                <p class="">ID {{ $searched_employee->id }} {{ $searched_employee->user->name }}</p>
+                <p class="text-sm text-gray-400 mx-2">Dostawca</p>
+                <a href="{{ route('edashboard.employees.edit', $searched_employee->id) }}">
+                    <x-jet-secondary-button>Zarządzaj</x-jet-secondary-button>
+                </a>
+            </div>
         @endif
     </div>
 
@@ -49,7 +46,6 @@
             <tbody>
                 @foreach($employees as $employee)
                     @if(isset($employee->role))
-{{--                        @dd($employee)--}}
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{ $employee->id }}

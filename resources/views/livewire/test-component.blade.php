@@ -9,7 +9,6 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                     <div>
-                        <!-- <x-jet-application-logo class="block h-12 w-auto" /> -->
                         <p class="font-semibold text-center p-6 text-xl">Etap 1: wybór adresu dostawy</p>
                     </div>
 
@@ -24,7 +23,6 @@
                                         <p class="text-sm">{{ $address->city . ' ' .  $address->zipcode }}</p>
                                     </div>
                                     <div>
-                                    <!-- <x-jet-secondary-button><a href="/order/create/step-one/{{ $address->id }}">Wybierz</a></x-jet-secondary-button> -->
                                         <div class="flex">
                                             <x-jet-button wire:click="selectAddress({{ $address->id }})">Wybierz</x-jet-button>
                                         </div>

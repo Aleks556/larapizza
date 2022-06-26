@@ -62,8 +62,6 @@ class EmployeeController extends Controller
 
     public function delete(Employee $employee)
     {
-        //$shifts = Shift::where('employee_id', $employee->id)->get();
-        //$shifts->deleted();
         $employee->deleteOrFail();
 
         session()->flash('flash.banner', 'Pomyślnie zwolniono pracownika oraz usunięto jego zmiany w bazie danych.');

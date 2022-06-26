@@ -176,9 +176,6 @@
                         <p class="text-center text-lg font-semibold mb-4">Produkty dodane do zamówienia</p>
                         <div class="text-center">
                             @foreach($pushed_order_items as $order_item)
-{{--                                <svg wire:click="deleteItem({{ json_encode($item) }})" class="w-4 h-4 fill-current text-gray-400 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>--}}
-{{--                                <span class="text-gray-600">{{ $order_item['category'] }} {{ $order_item['name'] }} <span class="text-sm text-gray-400">{{ $order_item['price'] }} zł</span></span>--}}
-
                                 <div class="flex items-center inset-0 text-center font-semibold text-sm">
                                     <svg wire:click="deleteItemFromOrder({{ json_encode($order_item['slot']) }})" class="w-4 h-4 fill-current text-gray-400 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                                     <span>{{ $order_item['category'] }} <span class="font-medium text-sm"> {{ $order_item['name'] }}</span></span>

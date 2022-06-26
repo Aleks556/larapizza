@@ -36,8 +36,6 @@
                         </div>
                     </form>
                 </div>
-
-                {{--                <livewire:edashboard.index.main />--}}
             </div>
         </div>
     </div>

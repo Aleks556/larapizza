@@ -67,10 +67,6 @@ class OrderEdit extends Component
         $this->address_city = $this->order->city;
 
         $this->initializeOrderItems($this->order_items);
-        //$this->deleteItemFromOrder(0);
-//        $this->addItemFromCatalog(3);
-//        $this->addItemFromCatalog(3);
-//        dd($this->pushed_order_items);
     }
 
     public function saveOrderChanges()
@@ -83,8 +79,6 @@ class OrderEdit extends Component
         {
             if ($this->order_delivery == 0)
             {
-//                dd($this->order);
-                //order update
                 $this->validate();
                 $this->order->status = $this->order_status;
                 $this->order->delivery = $this->order_delivery;
@@ -135,8 +129,6 @@ class OrderEdit extends Component
             }
             session()->flash('message', 'Zmiany w zamówieniu zostały wprowadzone.');
         }
-
-        //sprawdzenie czy dostawa jesli tak to walidacja adresu jesli pozytywna to zapisujemy do bazy
     }
 
 
@@ -144,13 +136,6 @@ class OrderEdit extends Component
     {
         if (isset($dbItems))
         {
-//            foreach ($dbItems as $item)
-//            {
-//
-//                array_push($this->pushed_order_items, ['slot' => $this->getFreeSlot(), 'id' => $item->id, 'category' => $item->category->name, 'name' => $item->name, 'price' => $item->price]);
-//            }
-//            dd($this->pushed_order_items);
-            //dd($dbItems);
             foreach ($dbItems as $item)
             {
                 $this->addItemFromCatalog($item->item->id);
@@ -178,7 +163,6 @@ class OrderEdit extends Component
     public function addItemFromCatalog($item_id)
     {
         $item = Item::find($item_id);
-//dd($item);
         if ($item->exists)
         {
             array_push($this->pushed_order_items, ['slot' => $this->getFreeSlot(), 'id' => $item->id, 'category' => $item->category->name, 'name' => $item->name, 'price' => $item->price]);

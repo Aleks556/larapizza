@@ -76,7 +76,6 @@ class RoleController extends Controller
             'level' => 'required',
             'pay_rate' => 'required|numeric|max:50|min:1',
         ]);
-        //$attributes['user_id'] = request()->user()->id;
         $role->update($attributes);
         session()->flash('flash.banner', 'Pomyślnie zaktualizowano stanowisko ' . $attributes['name'] . '.');
         session()->flash('flash.bannerStyle', 'success');

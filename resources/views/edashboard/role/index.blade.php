@@ -63,9 +63,6 @@
                         </tbody>
                     </table>
                 </div>
-
-{{--                <livewire:edashboard.employee.employee-index />--}}
-                {{--                <livewire:edashboard.index.main />--}}
             </div>
         </div>
     </div>

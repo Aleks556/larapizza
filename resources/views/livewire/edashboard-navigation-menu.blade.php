@@ -118,9 +118,6 @@
             <x-jet-responsive-nav-link href="{{ route('order.create') }}" :active="request()->routeIs('order.create')">
                 Stwórz zamówienie
             </x-jet-responsive-nav-link>
-            {{--            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">--}}
-            {{--                {{ __('Dashboard') }}--}}
-            {{--            </x-jet-responsive-nav-link>--}}
             <x-jet-responsive-nav-link href="{{ route('orders') }}" :active="request()->routeIs('orders')">
                 Zamówienia
             </x-jet-responsive-nav-link>

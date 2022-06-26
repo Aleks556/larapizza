@@ -20,11 +20,8 @@
                 <p class="text-center">Poniżej znajdują się szczegóły zgłoszenia zamówienia o ID: {{ $report->order->id }}</p>
 
                 <p class="text-center p-6 font-semibold">W zgłoszeniu został wybrany temat: {{ $report->getProblem() }} </p>
-                {{--                                @if(isset($report_single->description))--}}
-                {{--                                    @dd($report_single)--}}
                 <label for="description" class="block text-center my-2 text-md font-medium text-gray-900">Opis sytuacji / edycji</label>
                 <textarea name="description" id="description" class="mx-auto sm:mx-0 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  sm:w-full w-1/2 p-2.5" disabled>{{ $report->description ? $report->description : 'Nie wpisano dodatkowych informacji dotyczących sytuacji.' }}</textarea>
-                {{--                                @endif--}}
                 <div class="text-center">
                     <x-jet-label>Status zgłoszenia:</x-jet-label>
                     <x-jet-dropdown align="none" dropdownClasses="relative lg:w-60" contentClasses="lg:w-60"  class="mb-5">

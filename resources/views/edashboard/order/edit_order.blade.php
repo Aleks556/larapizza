@@ -7,8 +7,6 @@
 
     <livewire:edashboard.order.order-edit/>
 
-{{--    @dd(request()->order->id)--}}
-{{--    @livewire('edashboard.order.order-edit', ['order' => request()->order])--}}
 </x-employee-layout>
 
 

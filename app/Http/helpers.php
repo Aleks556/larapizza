@@ -118,10 +118,8 @@ if (!function_exists('hasRole'))
         if (isset($eid) && isset($role_level))
         {
             $employee = Employee::find($eid);
-            //dd($employee->exists);
             if (isset($employee->exists))
             {
-                //dd($employee->role);
                 if ($employee->role->level >= $role_level)
                 {
                     return true;

@@ -32,15 +32,11 @@ class ReportController extends Controller
     public function storeReport(Order $order)
     {
         $attributes = request()->validate([
-            //'problem' => 'required|in:edit,incomplete,badproducts,notarrived,badrest'
             'problem' => 'required',
             'description' => 'max:300',
         ]);
-        //dd($attributes);
         $attributes['user_id'] = request()->user()->id;
-        //dd(request());
         $attributes['order_id'] = request()->order->id;
-//        dd($attributes);
         OrderReport::create($attributes);
 
         return redirect()->to(route('orders'))->with('message', 'Adres został pomyślnie dodany do konta.');

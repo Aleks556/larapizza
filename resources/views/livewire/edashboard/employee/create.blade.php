@@ -61,13 +61,6 @@
                             {{ $db_role->name }}
                         @endif
                     @endforeach
-{{--                    @elseif($role === 1)--}}
-{{--                        Dostawca--}}
-{{--                    @elseif($role === 2)--}}
-{{--                        Kucharz--}}
-{{--                    @elseif($role === 3)--}}
-{{--                        Menadżer--}}
-{{--                    @endif--}}
                 </x-dropdown-trigger>
 
             </x-slot>
@@ -78,10 +71,6 @@
                     @foreach($db_roles as $db_role)
                         <x-jet-dropdown-link wire:click="setRole({{ $db_role->id }})">{{ $db_role->name }}</x-jet-dropdown-link>
                     @endforeach
-{{--                <x-jet-dropdown-link wire:click="setRole(0)">Wybierz</x-jet-dropdown-link>--}}
-{{--                <x-jet-dropdown-link wire:click="setRole(1)">Dostawca</x-jet-dropdown-link>--}}
-{{--                <x-jet-dropdown-link wire:click="setRole(2)">Kucharz</x-jet-dropdown-link>--}}
-{{--                <x-jet-dropdown-link wire:click="setRole(3)">Menadżer</x-jet-dropdown-link>--}}
             </x-slot>
         </x-jet-dropdown>
         @error('role')
@@ -96,8 +85,6 @@
                         Nie
                     @elseif($student === 1)
                         Tak
-                    {{--                    @elseif($role === 3)--}}
-                    {{--                        Menadżer--}}
                     @endif
                 </x-dropdown-trigger>
 
@@ -106,11 +93,8 @@
                 <div class="block px-4 py-2 text-xs text-gray-400">
                     Dostępne odpowiedzi
                 </div>
-
                 <x-jet-dropdown-link wire:click="setStudent(0)">Nie</x-jet-dropdown-link>
                 <x-jet-dropdown-link wire:click="setStudent(1)">Tak</x-jet-dropdown-link>
-                {{--                <x-jet-dropdown-link wire:click="setRole(2)">Kucharz</x-jet-dropdown-link>--}}
-                {{--                <x-jet-dropdown-link wire:click="setRole(3)">Menadżer</x-jet-dropdown-link>--}}
             </x-slot>
         </x-jet-dropdown>
         @error('student')

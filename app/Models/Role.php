@@ -22,7 +22,6 @@ class Role extends Model
         if (isset($id))
         {
             $count = Employee::where('role_id', $id)->count();
-            //$count = $this->where('id', $id)->count();
         }
         else
         {

@@ -16,8 +16,6 @@ class Orderlist extends Component
     public function mount(Order $orders, OrderItem $item)
     {
         $this->orders = Order::whereDate('created_at', Carbon::today())->orderBy('created_at', 'desc')->get();
-
-        //dd($orders->orderItem());
     }
 
     public function render()

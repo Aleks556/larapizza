@@ -30,8 +30,6 @@ class Main extends Component
     //ilość dzisiejszych zamówień
     public int $today_orders_count;
 
-    //ilość aktywnych pracowników
-//    public int $active_employees;
 
     //ilość zgloszeń do zamówień
     public int $order_reports;
@@ -75,7 +73,6 @@ class Main extends Component
         $this->employees_on_shift_count = count($this->employees_on_shift);
     }
 
-    //utils
 
     public function startShift()
     {

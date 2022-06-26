@@ -1,7 +1,3 @@
-{{--@foreach($order_items as $order_item)--}}
-{{--    <p>{{ $order_item->item->name }}</p>--}}
-{{--@endforeach()--}}
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -30,11 +26,6 @@
                             <label for="problem" class="block text-center mb-2 text-md font-semibold text-gray-900">Czego dotyczy problem?</label>
                             <select id="problem" name="problem" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 <option value="">Wybierz kategorię problemu</option>
-                                {{--                            <option value="edit">Chcę edytować zamówienie</option>--}}
-                                {{--                            <option value="incomplete">Zamówienie jest niekompletne</option>--}}
-                                {{--                            <option value="badproducts">Błedne produkty w zamówieniu</option>--}}
-                                {{--                            <option value="notarrived">Zamówienie nie dotarło do mnie</option>--}}
-                                {{--                            <option value="badrest">Pracownik źle wydał resztę</option>--}}
                                 <option value="1">Chcę edytować zamówienie</option>
                                 <option value="2">Zamówienie jest niekompletne</option>
                                 <option value="3">Błedne produkty w zamówieniu</option>
@@ -56,11 +47,8 @@
                         @if(isset($report))
                             @foreach($report as $report_single)
                                 <p class="text-center p-6 font-semibold">W zgłoszeniu został wybrany temat: {{ $report_single->getProblem() }} </p>
-                                {{--                                @if(isset($report_single->description))--}}
-                                {{--                                    @dd($report_single)--}}
                                 <label for="description" class="block text-center my-2 text-md font-medium text-gray-900">Opis sytuacji / edycji</label>
                                 <textarea name="description" id="description" class="mx-auto sm:mx-0 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  sm:w-full w-1/2 p-2.5" disabled>{{ $report_single->description ? $report_single->description : 'Nie wpisano dodatkowych informacji dotyczących sytuacji.' }}</textarea>
-                                {{--                                @endif--}}
                                 <p class="text-center py-2">Status zgłoszenia</p>
                                 <p class="text-center font-semibold text-red-500">{{ $report_single->getStatusName() }}</p>
                             @endforeach

@@ -55,9 +55,6 @@
             <x-jet-responsive-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
                 Strona główna
             </x-jet-responsive-nav-link>
-            {{--            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">--}}
-            {{--                {{ __('Dashboard') }}--}}
-            {{--            </x-jet-responsive-nav-link>--}}
             <x-jet-responsive-nav-link href="{{ route('dishes') }}" :active="request()->routeIs('dishes')">
                 Menu
             </x-jet-responsive-nav-link>

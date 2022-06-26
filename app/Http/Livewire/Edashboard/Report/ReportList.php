@@ -16,8 +16,6 @@ class ReportList extends Component
     public function mount(OrderReport $orderReport)
     {
         $this->reports = OrderReport::whereDate('created_at', Carbon::today())->orderBy('created_at', 'desc')->get();
-
-        //dd($orders->orderItem());
     }
 
     public function render()

@@ -19,7 +19,6 @@ class DishesTable extends Component
 
     public $current_category = 1;
 
-    //public $sorted_dishes = [];
 
     public function mount ()
     {
@@ -29,14 +28,6 @@ class DishesTable extends Component
         $this->dishes = Item::all();
         $this->dish_categories = Category::all();
         $this->getItemsAndCategory($this->current_category);
-
-//        foreach ($this->dish_categories as $category)
-//        {
-//            $dishes = Item::where('category_id', $category->id)->get();
-//            array_push($this->sorted_dishes, ['category_id' => $category->id, 'dishes' => $dishes ]);
-//        }
-
-        //dd($this->sorted_dishes);
     }
 
     public function getItemsAndCategory($cid)
@@ -51,7 +42,6 @@ class DishesTable extends Component
         {
             $this->current_category = $cid;
             $this->getItemsAndCategory($cid);
-            //$this->dishes = Item::where('category_id', $this->current_category)->get();
         }
     }
 

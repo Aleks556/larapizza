@@ -21,22 +21,10 @@ class EmployeeIndex extends Component
 
     public $searched_employee;
 
-//    public $employee_users = [];
 
     public function mount(Employee $employee, Role $role, User $user)
     {
         $this->employees = Employee::all();
-//        foreach ($this->employees as $employee)
-//        {
-//            //dd(auth()->user()->getRelations());
-//            $user = User::find($employee->user_id);
-//            array_push($this->employee_users, $user);
-//        }
-        //dd($this->employee_users);
-//        foreach ($this->employees as $employee)
-//        {
-//            dd($user->employee->name);
-//        }
     }
 
 
@@ -52,25 +40,18 @@ class EmployeeIndex extends Component
     public function getEmployeeDetailsByName()
     {
         $fullname = $this->fullname_input;
-        //dd($fullname);
         if (isset($fullname) and empty($fullname) !== true)
         {
             $user = User::where('name', $fullname)->first();
             if (isset($user->exists) and $user->exists == true) {
                 $employee_details = Employee::where('user_id', $user->id)->first();
-                if (isset($employee_details->exists) and $employee_details->exists == true) {
-                    //return $employee_details;
-                    //dd($employee_details);
-                    //session()->flash('message', 'Użytkownik ' . $fullname . ' jest pracownikiem. Naciśnij tutaj, aby zobaczyć szczegóły.');
-
+                if (isset($employee_details->exists) and $employee_details->exists == true)
+                {
                     $this->searched_employee = $employee_details;
-                    //return $employee_details;
                 }
                 else
                 {
-                    //return null;
                     session()->flash('message', 'Użytkownik ' . $fullname . ' odnaleziony w bazie danych. Brak informacji dot. szczegółów pracy.');
-                    //dd('Użytkownik ' . $fullname . ' odnaleziony w bazie danych. Brak informacji dot. szczegółów pracy.');
                 }
             }
             else
@@ -81,7 +62,6 @@ class EmployeeIndex extends Component
         else
         {
             session()->flash('message', 'Aby wyszukać osobę należy wpisać imię i nazwisko z dużej litery.');
-            //return null;
         }
     }
 

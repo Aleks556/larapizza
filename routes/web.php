@@ -50,7 +50,6 @@ Route::middleware(['auth:sanctum', 'verified'])->patch('/addresses/{address}', [
 Route::middleware(['auth:sanctum', 'verified'])->get('/addresses/{address}/delete', [AddressController::class, 'delete'])->name('address.delete');
 
 // DASHBOARD PRACOWNICZY
-//'isInAdminGroup'
 Route::middleware(['auth:sanctum', 'verified'])->get('/edashboard', [EdashboardController::class, 'index'])->name('edashboard.index');
 
 //Zarządzanie zamówieniami
