@@ -17,7 +17,7 @@ Konto klienta
 - email: tester@tester.pl hasło: tester123
 
 Konto menadżera
-- email: root@tester.pl hasło: tester123
+- email: root_tester@tester.pl hasło: tester123
 
 Zapraszam do testowania! :)
 

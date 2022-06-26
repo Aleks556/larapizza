@@ -14,17 +14,17 @@ class TestForm extends Component
     //Form details
     public int $max_step = 4;
     public int $step = 1;
-
+    //Address details
     public $addresses;
     public $selected_address;
     public $selected_address_fullname;
 
     public $delivery;
 
-
+    //Catalog details
     public $items_catalog = [];
 
-
+    //Order items details
     public array $items_cart = [];
 
 
@@ -41,6 +41,7 @@ class TestForm extends Component
         'phone_number' => 'required|numeric|digits:9'
     ];
 
+
     public function mount(Address $address, Item $item)
     {
         $this->addresses = Address::all();
@@ -51,15 +52,17 @@ class TestForm extends Component
 
     public function chooseDelivery($aid = null)
     {
-
+        //$this->delivery = $delivery;
         if (isset($aid))
         {
             $this->delivery = 1;
+            //$this->selected_address = 0;
             $this->selectAddress($aid);
         }
         else
         {
             $this->delivery = 0;
+            //$this->selected_address = 0;
             unset($this->selected_address);
             unset($this->selected_address_fullname);
             $this->step++;
@@ -105,7 +108,9 @@ class TestForm extends Component
 
     public function addItem($selectedItem)
     {
+        //dd($selectedItem['price']);
         array_push($this->items_cart, [$this->getFreeSlot(), $selectedItem['name'], $selectedItem['price'], $selectedItem['category']['id'], $selectedItem['category']['name'], $selectedItem['id']]);
+        //dd($this->items_cart);
         $this->calculatePrice();
     }
 
@@ -202,6 +207,7 @@ class TestForm extends Component
                 OrderItem::create([
                     'order_id' => $saved_order->id,
                     'item_id' => $item[5],
+                    //dodac ilosc
                 ]);
             }
         }
@@ -226,15 +232,24 @@ class TestForm extends Component
             {
                 if (isset($this->payment_type))
                 {
+//                    $this->step++;
+                    //$this->order_details = array_push($this->order_details, ['price' => $this->price, 'payment_type' => $this->payment_type, 'comment' => $this->comment]);
                     $this->validate();
                     $this->makeOrder();
                     $this->step = $this->max_step;
+
+
+                   // teraz to samo tylko przedmioty zamówienia zapisujemy na $saved_order->id a pozniej nastepna strona z podsumowaniem zamowienia
                 }
                 else
                 {
                     session()->flash('message', "Nie można przejść do następnego kroku, ponieważ nie wybrano sposobu płatności.");
                 }
             }
+//            elseif ($this->step == 4)
+//            {
+//
+//            }
             else
             {
                 $this->step++;
